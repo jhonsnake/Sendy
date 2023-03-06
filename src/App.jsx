@@ -1,4 +1,6 @@
 import { useState } from "react";
+import "bulma/css/bulma.min.css";
+
 import "./App.css";
 import countries from "./data/countries";
 import ContactData from "./ContactData/ContactData";
@@ -37,7 +39,7 @@ function App() {
   const renderButton = () => {
     if (phoneNumber != "") {
       return (
-        <button onClick={toggleData} className="generate">
+        <button type="submit" className="button block " onClick={toggleData}>
           {!visibleData ? "Generate Link" : "Hide Link"}
         </button>
       );
@@ -46,23 +48,50 @@ function App() {
 
   return (
     <div className="App">
-      <h1>No more useless contacts</h1>
-      <div className="controls">
-        <div className="countries">
-          <select onChange={onChangeCountry} name="countries" id="countries">
-            {SelectableCountriesList()}
-          </select>
-
-          <input onChange={onChangeNumber} type="number" name="cel" id="cel" />
-        </div>
+      <div className="column">
+        <h1 className="title">No more useless contacts</h1>
       </div>
 
-      {renderButton()}
-      <ContactData
-        visible={visibleData}
-        selectedCountry={selectedCountry}
-        phoneNumber={phoneNumber}
-      />
+      <div className="columns">
+        <div className="column">
+          <div className="column">
+            <div className="field">
+              <div className="countries select control is-fullwidth ">
+                <select
+                  onChange={onChangeCountry}
+                  name="countries"
+                  id="countries"
+                >
+                  {SelectableCountriesList()}
+                </select>
+              </div>
+            </div>
+
+            <div className="field">
+              <div className="control">
+                <input
+                  className="input "
+                  placeholder="00000"
+                  onChange={onChangeNumber}
+                  type="number"
+                  name="cel"
+                  id="cel"
+                />
+              </div>
+            </div>
+            <div className="control">{renderButton()}</div>
+          </div>
+        </div>
+        <div className="column">
+          <div className="column">
+            <ContactData
+              visible={visibleData}
+              selectedCountry={selectedCountry}
+              phoneNumber={phoneNumber}
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
