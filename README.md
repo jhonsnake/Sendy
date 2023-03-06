@@ -1,0 +1,2 @@
+# sendy
+Whatsapp Link Generator
