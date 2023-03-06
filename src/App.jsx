@@ -92,6 +92,16 @@ function App() {
           </div>
         </div>
       </div>
+      <footer className="footer">
+        <div className="content has-text-centered">
+          <p>
+            <strong>Sendy</strong> by{" "}
+            <a href="https://github.com/jhonsnake/sendy">John Prada</a>. The
+            source code is free and licenced under
+            <a href="http://opensource.org/licenses/mit-license.php"> MIT</a>.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
